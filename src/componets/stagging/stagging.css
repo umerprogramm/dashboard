@@ -1,0 +1,38 @@
+.Stagging{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    
+}
+
+.Link{
+    text-decoration: none;
+    color: black;
+    
+}
+
+
+.not_link{
+    color: white;
+}
+
+.Stagging>ul{
+    background-color: rgb(232, 237, 240);
+ padding: 20px;
+ list-style: none;
+ border-radius: 15px;
+}
+
+.Stagging>ul>li{
+    padding: 5px;
+}
+
+
+.options{
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

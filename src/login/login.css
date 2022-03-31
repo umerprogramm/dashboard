@@ -1,0 +1,41 @@
+.container{
+    margin-top: 150px;
+}
+.login{
+    margin: auto;
+    text-align: center;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.login>h1{
+        color: rgb(44, 17, 117);
+}
+.login>input{
+    margin-left: 100px;
+    margin-bottom: 15px;
+    margin-right: 100px;
+    padding: 10px;
+    border: 1px solid rgb(44, 17, 117);;
+
+}
+
+.login>button{
+    margin-left: 250px;
+    margin-right: 250px;
+    padding: 10px;
+    color: black;
+    border: 3px solid rgb(44, 17, 117);
+    border-radius: 15px;
+    
+}
+.login>button:hover{
+    cursor: pointer;
+    color: white;
+
+    background-color:black;
+    border: 3px solid rgb(71, 8, 241);
+
+
+    
+}

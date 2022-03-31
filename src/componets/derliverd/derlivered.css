@@ -1,0 +1,36 @@
+.Derlivered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    flex-direction: column;
+}
+
+.Link{
+    color: black;
+}
+
+
+
+.not_link{
+    color: white;
+    text-decoration: none;
+}
+
+.Derlivered>ul{
+background-color: rgb(232, 237, 240);
+ padding: 20px;
+ list-style: none;
+ border-radius: 15px;
+}
+
+.Derlivered>ul>li{
+    padding: 5px;
+}
+
+.options{
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

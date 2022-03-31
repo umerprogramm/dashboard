@@ -1,0 +1,32 @@
+.Manage_orders{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-left: 300px; 
+    margin-right: 300px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  
+}
+
+
+
+.Manage_orders>table, th, td {
+    border: 1px solid rgb(62, 33, 192);
+    padding: 15px;
+    border-radius: 15px;
+}
+
+
+#check{
+    border: none;
+    cursor: pointer;
+
+ 
+}
+
+#Delete{
+    border: none;
+  cursor: pointer;
+}

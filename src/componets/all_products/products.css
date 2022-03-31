@@ -1,0 +1,36 @@
+.all_product{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+    
+}
+.Cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+
+
+.not_link{
+    color: white;
+}
+
+.card_child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(171, 182, 182, 0.486);
+    width: 20%;
+    flex-direction: column;
+    height: 300px;
+    border-radius: 15px;
+}
+
+.card_child>img{
+    width: 100%;
+}

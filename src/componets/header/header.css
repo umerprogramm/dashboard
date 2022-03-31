@@ -1,0 +1,30 @@
+.header{
+    background: linear-gradient(100deg, rgba(85, 100, 185, 0.8) 40%, rgba(44, 67, 139, 0.918)50%);
+    color: aliceblue;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: sticky;
+}
+
+.header>h2{
+    margin:auto;
+    margin-left: 15px;
+}
+.header >span{
+   margin-right: 40px;
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-top: 5px;
+   padding-bottom: 5px;
+   color: white;
+   border-radius: 5px;
+   border: 1px solid white;
+}
+
+.header>span:hover{
+    cursor: pointer;
+    background-color: aliceblue;
+    color: rgb(44, 17, 117);
+}

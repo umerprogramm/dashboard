@@ -1,0 +1,30 @@
+.Manage_products{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+    background-color: black;
+    color: aliceblue;
+    margin-left:20%;
+    height: 40px;
+    background: linear-gradient(100deg, rgba(37, 49, 116, 0.8) 40%, rgba(122, 139, 190, 0.918));
+
+
+}
+
+
+.Manage_products>span{
+    cursor: pointer;
+}
+
+.Link{
+    text-decoration: none;
+    color: white;
+    
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

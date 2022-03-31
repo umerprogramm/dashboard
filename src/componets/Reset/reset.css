@@ -1,0 +1,40 @@
+.reset{
+
+    
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.reset>input{
+
+    height: 40px;
+    margin-bottom: 15px;
+    width: 20%;
+    border: 2px solid rgba(13, 15, 82, 0.884);
+    padding-left: 10px;
+}
+
+.reset>span{
+    background-color: rgba(13, 15, 82, 0.884);
+    padding: 5px;
+    border-radius: 5px;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+#file{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom:2px solid rgba(13, 15, 82, 0.884) ;
+}
+
+.description{
+    padding-left: 30px;
+    padding-right: 50px;
+padding-bottom: 80px;
+}

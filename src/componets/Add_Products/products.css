@@ -1,0 +1,28 @@
+.Products{
+     
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.Products>input{
+
+    height: 40px;
+    margin-bottom: 15px;
+    width: 20%;
+    border: 2px solid rgba(13, 15, 82, 0.884);
+    padding-left: 10px;
+}
+
+.Products>span{
+    background-color: rgba(13, 15, 82, 0.884);
+    padding: 5px;
+    border-radius: 5px;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+
