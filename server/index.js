@@ -225,7 +225,24 @@ app.get('/menu',(req,res)=>{
 		  db.close();
 		});
 	  });
-})  
+}) 
+
+app.post('/all_product_delete',(req,res)=>{
+	const _id =  req.body._id
+ 
+ 
+	Mongo.connect(uri, function(err, db) {
+	 if (err) throw err;
+	 var dbo = db.db("dashboard");
+	 var myquery = { order_num: _id };
+	 dbo.collection("menu").deleteOne(myquery, function(err, obj) {
+	   if (err) throw err;
+	   console.log("1 document deleted");
+	   db.close();
+	 });
+   });
+ })
+
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`)
 })
