@@ -1,7 +1,11 @@
-export const LogIn = ()=>{
-    
+
+export const LogIn = (info)=>{
+ 
+
    return{
-    type : "Login"
+    type : "Login",
+    username : info.username,
+    Password : info.Password
 }
 
 }

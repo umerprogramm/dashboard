@@ -1,36 +1,28 @@
 import React, { useState } from 'react'
-import Main from '../main/Main'
+import { useDispatch } from 'react-redux'
 import './login.css'
-
+import { LogIn } from '../state/actions/action'
 export default function Login() {
-
+  const Dispatch = useDispatch()
   const [user, setuser] = useState('')
   const [pass, setpass] = useState('')
-  const [username, setusername] = useState('')
-  const [passward, setpassward] = useState('')
-  const [SerUserName, setSerUserName] = useState('name')
-  const [SerPass, setSerPass] = useState('pass')
- 
+
+ const Login = async ()=>{
+
+     let response = await fetch('http://localhost:5000/hello')
+      let data = await response.json()
+      let username = data[0].username
+      let passward = data[0].passward 
+
+  Dispatch(LogIn({username  , passward }))
+ }
 
   
-  const LogIn = async () => {
-    setusername(user)
-    setpassward(pass)
-    
-    let response = await fetch('http://localhost:5000/hello')
-    let data = await response.json()
-    setSerUserName(data[0].username)
-    setSerPass(data[0].passward)
-    localStorage.setItem("username",data[0].username)
-    localStorage.setItem("passward",data[0].passward)
-
-   
-  }
+  
   
   return (
     <>
-    {(username === SerUserName && passward === SerPass) || localStorage.getItem('passward') ?
-    <Main/>:
+  
     <div className='container'> 
     
       <div className='login'>
@@ -42,12 +34,12 @@ export default function Login() {
           value={pass}
           onChange={e => { setpass(e.target.value) }}
           type='password' placeholder='Enter your passward'/>
-        <button onClick={LogIn}>sumbit</button>
+        <button onClick={Login}>sumbit</button>
       </div>
  
     </div>
     
-}
+
     </>
   )
     

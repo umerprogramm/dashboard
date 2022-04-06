@@ -1,7 +1,6 @@
 import React,{useState} from 'react'
 import  Header from '../header/Header'
 import Sidebar from '../sidebar/Sidebar'
-import { NavLink } from 'react-router-dom';
 import './products.css'
 import { storage } from "../firebase/Firebase";
 
