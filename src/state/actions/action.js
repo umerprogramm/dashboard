@@ -9,3 +9,19 @@ export const LogIn = (info)=>{
 }
 
 }
+
+export const LogOut = (state)=>{
+ 
+
+    return{
+     type : "logout",
+     state : state
+ }
+ 
+ }
+ 
+ 
+ 
+
+
+
