@@ -33,11 +33,13 @@ export default function Add_products() {
           .child(image.name)
           .getDownloadURL()
           .then(url => {
+            const product_id = Math.floor(Math.random() * 10000)
             const Data = {
               url,
               product_name,
               price,
-              description
+              description,
+              product_id
             
             }
              fetch('http://localhost:5000/add_products', {

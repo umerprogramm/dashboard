@@ -37,6 +37,8 @@ export default function All_products() {
     key={value._id}
     name = {value.product_name}
     url = {value.url}
+    product_id = {value.product_id}
+    
     
 
     />

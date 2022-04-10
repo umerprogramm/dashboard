@@ -5,10 +5,10 @@ export default function Cards(props) {
   const [state ,setstate] = useState(null) 
 
   const DeleteData = async ()=>{
-    setstate(props.key)
+    setstate(props.product_id)
 
     const Data = {
-      _id : props.key
+      product_id : props.product_id
     }
      await fetch('http://localhost:5000/all_product_delete', {
       method: 'POST',
@@ -23,10 +23,10 @@ export default function Cards(props) {
  
     <div className='Cards'>
  {
-      props.key===state ?
+      props.product_id===state ?
 
       <div className='card_child' style={{display : 'none'}}>
-        <img src={props.url}/>
+        <img src={props.url} alt='This is an image'/>
         <h4>{props.name}</h4>
        <span> <DeleteOutline onClick={DeleteData}/> </span>
   
