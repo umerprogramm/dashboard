@@ -3,7 +3,8 @@ const InitValues = {
     name : undefined,
     passward : undefined,
     local_name : 'hi',
-    local_pass : 'pass'
+    local_pass : 'pass',
+ 
 }
 export const ChangeState =   (state=InitValues,action )=>{
 
@@ -12,7 +13,7 @@ export const ChangeState =   (state=InitValues,action )=>{
 
   
      
-        return { name : state.name =  action.username }
+        return { name : state.name =  action.username  }
        
  
     
@@ -22,7 +23,7 @@ export const ChangeState =   (state=InitValues,action )=>{
           name : state.name,
           passward : state.passward ,
           local_name : state.local_name ,
-          local_pass : state.local_pass
+          local_pass : state.local_pass,
       }
   }
     

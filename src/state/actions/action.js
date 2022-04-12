@@ -6,6 +6,7 @@ export const LogIn = (info)=>{
     type : "Login",
     username : info.username,
     Password : info.Password
+
 }
 
 }

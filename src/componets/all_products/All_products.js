@@ -3,6 +3,7 @@ import Header from '../header/Header'
 import Sidebar from '../sidebar/Sidebar'
 import { Link } from 'react-router-dom'
 import './products.css'
+import * as Realm from 'realm-web'
 import Cards from './Cards'
 
 export default function All_products() {
@@ -10,9 +11,16 @@ export default function All_products() {
 
   useEffect(  () => {
     async function  FetchData(){
-      const response = await fetch('http://localhost:5000/menu');
-      const data = await response.json();
-      setstate(data); 
+      const app = new Realm.App({ id: "triggers_realmapp-xjcdc" });
+      const credentials = Realm.Credentials.anonymous();
+      try {
+        const user = await app.logIn(credentials);
+        const product = await user.functions.GetMenu()
+        setstate(product)
+      } catch(err) {
+        console.error("Failed to log in", err);
+      }
+     
     }
    FetchData()
    }, []);

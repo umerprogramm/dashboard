@@ -200,7 +200,8 @@ app.post('/delete_tables',(req,res)=>{
 	let price = req.body.price
 	let url = req.body.url
 	let description = req.body.description
-	const myobj = { product_name  , price , url, description };
+	let product_id = req.body.product_id
+	const myobj = { product_name  , price , url, description , product_id };
 
 	Mongo.connect(uri, function(err, db) {
 		if (err) throw err;
@@ -228,13 +229,13 @@ app.get('/menu',(req,res)=>{
 }) 
 
 app.post('/all_product_delete',(req,res)=>{
-	const _id =  req.body._id
+	const product_id =  req.body.product_id
  
  
 	Mongo.connect(uri, function(err, db) {
 	 if (err) throw err;
 	 var dbo = db.db("dashboard");
-	 var myquery = { order_num: _id };
+	 var myquery = { product_id : product_id };
 	 dbo.collection("menu").deleteOne(myquery, function(err, obj) {
 	   if (err) throw err;
 	   console.log("1 document deleted");

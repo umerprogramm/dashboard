@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { LogIn } from '../state/actions/action'
+import * as Realm from 'realm-web'
 import './login.css'
 
 export default function Login() {
@@ -10,14 +11,20 @@ export default function Login() {
 
  const Login = async ()=>{
 
-     let response = await fetch('http://localhost:5000/hello')
-      let data = await response.json()
-      let username = data[0].username
-      let passward = data[0].passward
-       localStorage.setItem('username' , data[0].username)
-       localStorage.setItem('passward' , data[0].passward)
-
-  Dispatch(LogIn({username  , passward }))
+  const app = new Realm.App({ id: "triggers_realmapp-xjcdc" });
+  const credentials = Realm.Credentials.anonymous();
+  try {
+    const user = await app.logIn(credentials);
+    const data = await user.functions.GetLoginDetails()
+    let username = data[0].username
+    let passward = data[0].passward
+    Dispatch(LogIn({username  , passward }))
+     localStorage.setItem('username' , data[0].username)
+     localStorage.setItem('passward' , data[0].passward)
+     window.location.reload();
+  } catch(err) {
+    console.error("Failed to log in", err);
+  }
  }
 
   

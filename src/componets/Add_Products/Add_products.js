@@ -3,6 +3,7 @@ import  Header from '../header/Header'
 import Sidebar from '../sidebar/Sidebar'
 import './products.css'
 import { storage } from "../firebase/Firebase";
+import * as Realm from 'realm-web'
 
 
 export default function Add_products() {
@@ -51,12 +52,22 @@ export default function Add_products() {
               body: JSON.stringify(Data)
             });
           });
+       
       }
     );
     setproduct_name('')
     setprice(0)
     setdescription('')
     setImage('')
+    const app = new Realm.App({ id: "triggers_realmapp-xjcdc" });
+      const credentials = Realm.Credentials.anonymous();
+      try {
+        const user = await app.logIn(credentials);
+        const product = await user.functions.SendOrder('umer')
+        console.log(product)
+      } catch(err) {
+        console.error("Failed to log in", err);
+      }
   }
   return (
 <>
