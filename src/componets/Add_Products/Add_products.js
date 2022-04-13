@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import  Header from '../header/Header'
 import Sidebar from '../sidebar/Sidebar'
 import './products.css'
@@ -33,41 +33,28 @@ export default function Add_products() {
           .ref("images")
           .child(image.name)
           .getDownloadURL()
-          .then(url => {
+          .then(async (url) => {
+          
             const product_id = Math.floor(Math.random() * 10000)
-            const Data = {
-              url,
-              product_name,
-              price,
-              description,
-              product_id
-            
+            const app = new Realm.App({ id: "triggers_realmapp-xjcdc" });
+            const credentials = Realm.Credentials.anonymous();
+            try {
+              const user = await app.logIn(credentials);
+              const product = await user.functions.SendOrder(product_name, price , description ,product_id ,url )
+              console.log(product)
+            } catch(err) {
+              console.error("Failed to log in", err);
             }
-             fetch('http://localhost:5000/add_products', {
-              method: 'POST',
-              headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(Data)
-            });
+            
           });
-       
+          
       }
     );
     setproduct_name('')
     setprice(0)
     setdescription('')
     setImage('')
-    const app = new Realm.App({ id: "triggers_realmapp-xjcdc" });
-      const credentials = Realm.Credentials.anonymous();
-      try {
-        const user = await app.logIn(credentials);
-        const product = await user.functions.SendOrder('umer')
-        console.log(product)
-      } catch(err) {
-        console.error("Failed to log in", err);
-      }
+ 
   }
   return (
 <>

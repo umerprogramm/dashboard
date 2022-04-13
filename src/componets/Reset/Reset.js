@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import Header from '../header/Header'
 import Sidebar from '../sidebar/Sidebar'
 import './reset.css'
+import * as Realm from "realm-web"
 
 export default function Reset() {
   const [oldOnchangePassward, setOldOnchangePassward] = useState('')
@@ -24,14 +25,14 @@ export default function Reset() {
       alert('you old passward is wrong')
     }else{
       localStorage.setItem('passward',resetPassward)
-    const rawResponse = await fetch('http://localhost:5000/send', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ passward: resetPassward , oldPassward : oldOnchangePassward })
-    })
+      const app = new Realm.App({ id: "triggers_realmapp-xjcdc" });
+      const credentials = Realm.Credentials.anonymous();
+      try {
+        const user = await app.logIn(credentials);
+        const product = await user.functions.upadatePass(oldOnchangePassward ,resetPassward )
+      } catch(err) {
+        console.error("Failed to log in", err);
+      }
   
     }
   }
