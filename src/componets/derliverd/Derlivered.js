@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../header/Header'
 import Sidebar from '../sidebar/Sidebar'
+import * as Realm from 'realm-web'
 import Cards from './cards'
 import './derlivered.css'
 
@@ -9,9 +10,15 @@ export default function Derlivered() {
   const [state, setstate] = useState([])
   useEffect(  () => {
     async function  FetchData(){
-      const response = await fetch('http://localhost:5000/send_to_derlivery');
-      const data = await response.json();
-       setstate(data); 
+      const app = new Realm.App({ id: "triggers_realmapp-xjcdc" });
+      const credentials = Realm.Credentials.anonymous();
+      try {
+        const user = await app.logIn(credentials);
+        const product = await user.functions.GetDelivered()
+        setstate(product)
+      } catch(err) {
+        console.error("Failed to log in", err);
+      } 
     }
    FetchData()
    }, []);

@@ -44,7 +44,7 @@ export default function All_products() {
     <Cards
     key={value._id}
     name = {value.product_name}
-    url = {value.url}
+    url = {value.Url}
     product_id = {value.product_id}
     
     

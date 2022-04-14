@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
 import { DeleteOutline } from '@mui/icons-material'
 import CheckIcon from '@mui/icons-material/Check';
+import * as Realm from 'realm-web'
+
 
 
 
@@ -14,21 +16,19 @@ export default function Cards(value) {
     let Meal = value.Meal
     let order_num = value.order_num
     let drink = value.drink
-    const Data = {
-      name,
-      Meal,
-      order_num,
-      drink 
+
+    const app = new Realm.App({ id: "triggers_realmapp-xjcdc" });
+    const credentials = Realm.Credentials.anonymous();
+    try {
+      const user = await app.logIn(credentials);
+      const product = await user.functions.SendToDerlivered( name , Meal ,order_num ,drink  )
+      const Deleteproduct = await user.functions.DeleteStagging( order_num  )
+      console.log(Deleteproduct)
+    } catch(err) {
+      console.error("Failed to log in", err);
     }
 
-    const rawResponse = await fetch('http://localhost:5000/get_stagging_request', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(Data)
-    });
+   
 
   
   }

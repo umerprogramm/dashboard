@@ -1,5 +1,7 @@
 import React,{useState} from 'react'
 import { DeleteOutline } from '@mui/icons-material'
+import * as Realm from 'realm-web'
+
 
 export default function Cards(value) {
   const [state ,setstate] = useState(null) 
@@ -7,17 +9,17 @@ export default function Cards(value) {
   const DeleteData = async ()=>{
     setstate(value.order_num)
 
-    const Data = {
-      order_num : value.order_num
-    }
-     await fetch('http://localhost:5000/Delete_Derlivery_Data', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(Data)
-    });
+    const  order_num = value.order_num
+    
+    const app = new Realm.App({ id: "triggers_realmapp-xjcdc" });
+    const credentials = Realm.Credentials.anonymous();
+    try {
+      const user = await app.logIn(credentials);
+      const product = await user.functions.DeleteDelivered(order_num)
+      console.log(product)
+    } catch(err) {
+      console.error("Failed to log in", err);
+    } 
 
 
    

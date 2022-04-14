@@ -3,15 +3,22 @@ import { Link } from 'react-router-dom'
 import Header from '../header/Header'
 import Sidebar from '../sidebar/Sidebar'
 import  './stagging.css'
+import * as Realm from 'realm-web'
 import Cards from './Cards'
 
 export default function Stagging() {
   const [state, setstate] = useState([])
   useEffect(  () => {
     async function  FetchData(){
-      const response = await fetch('http://localhost:5000/send_to_stagging');
-      const data = await response.json();
-      setstate(data); 
+      const app = new Realm.App({ id: "triggers_realmapp-xjcdc" });
+      const credentials = Realm.Credentials.anonymous();
+      try {
+        const user = await app.logIn(credentials);
+        const product = await user.functions.GetStagging()
+        setstate(product)
+      } catch(err) {
+        console.error("Failed to log in", err);
+      }
     }
    FetchData()
    }, []);
