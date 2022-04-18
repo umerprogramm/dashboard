@@ -12,7 +12,29 @@ export default function Add_products() {
    const [image ,setImage] = useState('')
    const [product_name , setproduct_name] = useState('') 
    const [price , setprice] = useState(0) 
-   const [description , setdescription] = useState('') 
+   const [description , setdescription] = useState('')
+   const [imageName ,setimageName] = useState('')
+   const [stop ,setstop] = useState('')
+   
+   const GetAndCheckFile = async (e)=>{
+    setImage(e.target.files[0])
+    setimageName(e.target.files[0].name)
+    const app = new Realm.App({ id: "triggers_realmapp-xjcdc" });
+    const credentials = Realm.Credentials.anonymous();
+    try {
+      const user = await app.logIn(credentials);
+      const product = await user.functions.GetMenu()
+      product.map(value =>{
+        if(value.imageName ===  e.target.files[0].name ){
+          setstop('stop')
+          alert("please change your filename")
+       
+        }
+      })
+    } catch(err) {
+      console.error("Failed to log in", err);
+    }
+   } 
 
 
   const sendData = async ()=>{
@@ -38,22 +60,30 @@ export default function Add_products() {
             const product_id = Math.floor(Math.random() * 10000)
             const app = new Realm.App({ id: "triggers_realmapp-xjcdc" });
             const credentials = Realm.Credentials.anonymous();
-            try {
-              const user = await app.logIn(credentials);
-              const product = await user.functions.SendOrder(product_name, price , description ,product_id ,url )
-              console.log(product)
-            } catch(err) {
-              console.error("Failed to log in", err);
+            if(stop  === 'stop'){
+              alert('your request is not sended please change your filename')
+              console.log(image)
+              window.location.reload();
+            }else{
+              try {
+                const user = await app.logIn(credentials);
+                const product = await user.functions.SendMenu(product_name, price , description ,product_id ,url , imageName  )
+                console.log(product)
+                window.location.reload();
+                
+             
+              } catch(err) {
+                console.error("Failed to log in", err);
+
+              }
             }
+            
             
           });
           
       }
     );
-    setproduct_name('')
-    setprice(0)
-    setdescription('')
-    setImage('')
+
  
   }
   return (
@@ -75,7 +105,7 @@ export default function Add_products() {
 
     placeholder='Enter the product Price £'/>
 
-    <input  type='file' id='file'accept="image/*"  onChange={(e)=> setImage(e.target.files[0])}/>
+    <input  type='file' id='file'accept="image/*"  onChange={ GetAndCheckFile }/>
 
     <input 
      value={description}

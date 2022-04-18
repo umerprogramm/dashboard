@@ -37,17 +37,17 @@ export default function Cards(value) {
   const DeleteData = async ()=>{
     setstate(value.order_num)
 
-    const Data = {
-      order_num : value.order_num
+    const   order_num  = value.order_num
+    
+    const app = new Realm.App({ id: "triggers_realmapp-xjcdc" });
+    const credentials = Realm.Credentials.anonymous();
+    try {
+      const user = await app.logIn(credentials);
+      const Deleteproduct = await user.functions.DeleteStagging( order_num  )
+      console.log(Deleteproduct)
+    } catch(err) {
+      console.error("Failed to log in", err);
     }
-     await fetch('http://localhost:5000/delete_stagging', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(Data)
-    });
 
   }
   return (

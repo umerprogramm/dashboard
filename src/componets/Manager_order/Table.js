@@ -9,7 +9,7 @@ import * as Realm from 'realm-web'
 export default function Table(value) {
 
   const [state ,setstate] = useState(null) 
-  console.log(value.drink) 
+
   
   const  send_data = async ()=>{
 
@@ -25,7 +25,8 @@ export default function Table(value) {
       try {
         const user = await app.logIn(credentials);
         const product = await user.functions.SendToStagging(name , Meal ,order_num ,drink  )
-        setstate(product)
+     
+        console.log(product)
       } catch(err) {
         console.error("Failed to log in", err);
       }
@@ -40,7 +41,7 @@ export default function Table(value) {
        const credentials = Realm.Credentials.anonymous();
        try {
          const user = await app.logIn(credentials);
-         const product = await user.functions.DeleteStagging( order_num )
+         const product = await user.functions.DeleteManageOrder( order_num )
          console.log(product)
        } catch(err) {
          console.error("Failed to log in", err);
@@ -89,6 +90,7 @@ export default function Table(value) {
           <th>quantity</th>
           <th>order number</th>
           <th>customer Name</th>
+          <th>Addreass</th>
           <th>Procseed</th>
     
         </tr>
@@ -100,6 +102,7 @@ export default function Table(value) {
            <td>1</td>
            <td>{value.order_num}</td>
            <td>{value.Customer}</td>
+           <td>{value.addreass}</td>
            <td id='procssed'><td id='Delete'><DeleteIcon onClick={DeleteData}/></td><td id='check'><CheckIcon onClick={send_data}/></td></td>
     
          </tr>

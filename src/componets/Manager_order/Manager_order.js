@@ -38,7 +38,8 @@ state.map( value =>{
     Meal={value.product_name}
     order_num={value.order_num}
     drink={value.drink}
-    Customer={value.name}
+    Customer={value.Customer}
+    addreass={value.addreass}
     />
   )
 })
