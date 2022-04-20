@@ -3,7 +3,6 @@ import Reset from '../componets//Reset/Reset';
 import Manager_order from '../componets/Manager_order/Manager_order'
 import Add_products from '../componets/Add_Products/Add_products'
 import { Route ,Switch } from 'react-router-dom';
-import Customer_reviews from '../componets/customer_reviews/Customer_reviews'
 import Manage_products from '../componets/Manage_products/Manage_products';
 import  Stagging from '../componets/stagging/Stagging';
 import Derlivered from '../componets/derliverd/Derlivered';
@@ -22,7 +21,6 @@ export default function Main() {
       <Switch>
  <Route path='/products' component={Add_products}/>
  <Route path='/reset' component={Reset}/>
- <Route path='/reviews' component={Customer_reviews}/>
  <Route path='/manage_products' component={Manage_products}/>
  <Route exact path='/' component={Manager_order}/>
  <Route path='/stagging' component={Stagging}/>

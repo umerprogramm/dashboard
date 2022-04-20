@@ -24,6 +24,7 @@ export default function Login() {
     }else if(user === product[0].username &&  pass === product[0].passward ){
       Dispatch(LogIn({user : "login" }))
      localStorage.setItem("username" , product[0].username )   
+     localStorage.setItem("password" , product[0].passward )  
    }else{
      alert("you entered wrong password or username")
    }

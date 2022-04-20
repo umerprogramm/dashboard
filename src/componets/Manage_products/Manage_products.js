@@ -13,9 +13,9 @@ export default function Manage_products() {
     <Header/>    
       <Sidebar/>
       <div className='Manage_products'>
-     <NavLink className='Link'   to='/stagging'> <span>Stagging</span> </NavLink>
-     <NavLink  className='Link'  to='/all_products'> <span>All products</span> </NavLink>
-     <NavLink  className='Link'  to='/derlivered'> <span>Derlivered</span> </NavLink>
+     <NavLink className='Link'   to='/stagging'> <span1>Stagging</span1> </NavLink>
+     <NavLink  className='Link'  to='/all_products'> <span1>All products</span1> </NavLink>
+     <NavLink  className='Link'  to='/derlivered'> <span1>Derlivered</span1> </NavLink>
 
       </div>
      <h1>Wellcome to  Manage products 👋</h1>

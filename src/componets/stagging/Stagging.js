@@ -28,8 +28,8 @@ export default function Stagging() {
       <Sidebar/>
       <div className='Manage_products'>
       <span className='not_link'   to='/stagging'>Stagging</span>
-      <Link className='Link' to='/all_products' > <span>All products</span> </Link>
-      <Link className='Link' to='/derlivered'><span>Derlivered</span> </Link>
+      <Link className='Link' to='/all_products' > <span1>All products</span1> </Link>
+      <Link className='Link' to='/derlivered'><span1>Derlivered</span1> </Link>
 
       </div>
       <div className='Stagging'>

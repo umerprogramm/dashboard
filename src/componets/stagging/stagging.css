@@ -16,6 +16,8 @@
 
 .not_link{
     color: white;
+    font-size: large;
+    font-weight: 400;
 }
 
 .Stagging>ul{
@@ -35,4 +37,11 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+span1{
+    color:rgb(98, 78, 189);
+    font-size: medium;
+    font-weight: 400;
+
 }

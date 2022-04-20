@@ -3,11 +3,11 @@
     justify-content: space-around;
     align-items: center;
     margin-top: 50px;
-    background-color: black;
-    color: aliceblue;
-    margin-left:20%;
+    margin-left:10%;
+    margin-right:5%;
     height: 40px;
-    background: linear-gradient(100deg, rgba(37, 49, 116, 0.8) 40%, rgba(122, 139, 190, 0.918));
+    background: rgb(40, 40, 43);
+    border-radius: 35px;
 
 
 }
@@ -19,12 +19,18 @@
 
 .Link{
     text-decoration: none;
-    color: white;
+  
     
 }
+span1{
+    color:rgb(98, 78, 189);
+    font-size: large;
+    font-weight: 400;
 
+}
 h1{
     display: flex;
     justify-content: center;
     align-items: center;
+    color: whitesmoke;
 }

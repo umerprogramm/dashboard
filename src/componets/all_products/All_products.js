@@ -29,9 +29,9 @@ export default function All_products() {
   <Header/>    
       <Sidebar/>
       <div className='Manage_products'>
-      <Link to='/stagging' className='Link'><span>Stagging</span> </Link>
+      <Link to='/stagging' className='Link'><span1>Stagging</span1> </Link>
           <span className='not_link'>All products</span> 
-      <Link className='Link' to='/derlivered'><span>Derlivered</span> </Link>
+      <Link className='Link' to='/derlivered'><span1>Derlivered</span1> </Link>
       </div>
 
       <div className='all_products'>

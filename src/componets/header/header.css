@@ -1,5 +1,5 @@
 .header{
-    background: linear-gradient(100deg, rgba(85, 100, 185, 0.8) 40%, rgba(44, 67, 139, 0.918)50%);
+    background: rgb(40, 40, 43);
     color: aliceblue;
     height: 40px;
     display: flex;
@@ -26,5 +26,5 @@
 .header>span:hover{
     cursor: pointer;
     background-color: aliceblue;
-    color: rgb(44, 17, 117);
+    color: black;
 }

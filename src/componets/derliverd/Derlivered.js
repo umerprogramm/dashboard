@@ -27,8 +27,8 @@ export default function Derlivered() {
     <Header/>    
     <Sidebar/>
     <div className='Manage_products'>
-    <Link to='/stagging' className='Link'><span>Stagging</span> </Link>
-    <Link  className='Link'  to='/all_products'> <span>All products</span> </Link>
+    <Link to='/stagging' className='Link'><span1>Stagging</span1> </Link>
+    <Link  className='Link'  to='/all_products'> <span1>All products</span1> </Link>
 
     <span className='not_link'>Delivered</span>
     </div>

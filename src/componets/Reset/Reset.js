@@ -21,10 +21,10 @@ export default function Reset() {
     set_ResetPassward(resetPassward)
     set_OldOnchangePassward(oldOnchangePassward)
     set_ConfrimPassward(ConfirmPassward)
-    if(localStorage.getItem('passward') !== oldOnchangePassward ){
+    if(localStorage.getItem('password') !== oldOnchangePassward ){
       alert('you old passward is wrong')
     }else{
-      localStorage.setItem('passward',resetPassward)
+      localStorage.setItem('password',resetPassward)
       const app = new Realm.App({ id: "triggers_realmapp-xjcdc" });
       const credentials = Realm.Credentials.anonymous();
       try {

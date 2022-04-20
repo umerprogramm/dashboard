@@ -1,42 +1,54 @@
 .sidebar{
     background-color: blueviolet;
-    width: 20%;
-    padding-top: 10px;
-    background: rgba(85, 100, 185, 0.8);
-    height: 800px;
+    width: 5%;
+    background:rgb(25, 25, 26);
     position: fixed;
-
+    margin-left: 15px;
+    border-radius: 35px;
+    margin-top: 70px;
+  
 }
 .sidebar>ul{
     margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
     
 }
 
 .sidebar>ul>.Link{
-    margin-bottom: 100px;
+    margin-bottom: 70px;
     list-style: none;
-    font-size: medium;
-    font-weight: 500;
     color: azure;   
     display: flex;
     flex-direction: row;
+    margin-right: 15px;
    
 }
+
+.sidebar>ul>.EndLink{
+    list-style: none;
+    color: azure;   
+    display: flex;
+    flex-direction: row;
+    margin-right: 15px;
+   
+}
+
+
 .sidebar>ul>li:hover{
-    color: rgb(53, 42, 85);
     cursor: pointer;
 }
-.sidebar>ul>li>li{
-    list-style: none;
-    margin-right: 10px;
-}
+
 .sidebar>ul>.Link{
     text-decoration: none;
     
 }
 .sidebar>ul>.active-link{
     list-style: none;
-    color:rgb(94, 60, 60);
+    color:rgb(0, 0, 0);
 }
 .sidebar>ul>.Link>li{
     padding-right: 5px;
