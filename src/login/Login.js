@@ -9,11 +9,11 @@ export default function Login() {
 
   const [user, setuser] = useState('')
   const [pass, setpass] = useState('')
+  const [disbaled , setDisbaled] = useState(false)
   const Dispatch = useDispatch()
 
  const Login =  async ()=>{
-
-  
+  setDisbaled(true)
   const app = new Realm.App({ id: "triggers_realmapp-xjcdc" });
   const credentials = Realm.Credentials.anonymous();
   try {
@@ -22,6 +22,7 @@ export default function Login() {
     if(user === '' || pass === ''){
       alert("please fill the flied")
     }else if(user === product[0].username &&  pass === product[0].passward ){
+      
       Dispatch(LogIn({user : "login" }))
      localStorage.setItem("username" , product[0].username )   
      localStorage.setItem("password" , product[0].passward )  
@@ -58,7 +59,7 @@ export default function Login() {
           value={pass}
           onChange={e => { setpass(e.target.value) }}
           type='password' placeholder='Enter your passward'/>
-        <button onClick={Login}>sumbit</button>
+        <button onClick={Login} disabled={disbaled}>sumbit</button>
       </div>
  
     </div>

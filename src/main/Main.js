@@ -17,13 +17,12 @@ export default function Main() {
 
   return (
     <>
-
       <Switch>
  <Route path='/products' component={Add_products}/>
  <Route path='/reset' component={Reset}/>
  <Route path='/manage_products' component={Manage_products}/>
- <Route exact path='/' component={Manager_order}/>
  <Route path='/stagging' component={Stagging}/>
+ <Route exact path='/' component={Manager_order}/>
   <Route path='/derlivered' component={Derlivered}/>
   <Route path='/all_products' component={All_products}/>
  </Switch> 

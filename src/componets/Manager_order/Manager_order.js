@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect, useMemo, Profiler} from 'react'
 import Header from '../header/Header'
 import Sidebar from '../sidebar/Sidebar'
 import Table from './Table';
@@ -15,6 +15,7 @@ export default function Manager_order() {
         const user = await app.logIn(credentials);
         const product = await user.functions.GetOrders()
         setstate(product)
+        console.log("Hello")
       } catch(err) {
         console.error("Failed to log in", err);
       }
