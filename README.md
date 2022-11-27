@@ -1,11 +1,20 @@
-# Getting Started with Create React App
+# Dashboard App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app will help you to  grow your bussiness.Dashboard app will track and manage  all your orders
+
+#Technology that is used
+
+* The core technology in this project  is react. 
+* Firebase for hosting and storage.
+* MongoDB Realm for database and severless functions.
+* Redux for managing the state. 
+
+#contribution guideline
 
 ## Available Scripts
 
 In the project directory, you can run:
-
+###`npm install`
 ### `npm start`
 
 Runs the app in the development mode.\
